@@ -1,0 +1,23 @@
+:root {
+  --primaryColor: green;
+  --secondaryColor: white;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* show navbar links on mobile mode */
+.showLinks {
+  display: flex !important;
+}
