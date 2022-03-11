@@ -25,11 +25,6 @@ function Navbar() {
               </Link>
             </li>
             <li onClick={() => setSmallNav(false)}>
-              <Link href='/blog'>
-                <a>Blog</a>
-              </Link>
-            </li>
-            <li onClick={() => setSmallNav(false)}>
               <Link href='/contact'>
                 <a>Contact</a>
               </Link>

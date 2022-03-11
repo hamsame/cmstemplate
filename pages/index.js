@@ -2,8 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useGlobalContext } from '../components/context'
 import styles from '../styles/Home.module.css'
-import React, { useContext } from 'react'
-import { AppContext } from '../components/context'
 
 export default function Home() {
   const data = useGlobalContext()
@@ -16,7 +14,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>index</h1>
+        <h1>Home</h1>
+        <section className={styles.projects}></section>
       </main>
     </>
   )

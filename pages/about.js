@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/About.module.css'
 
 export default function About() {
   return (
@@ -12,8 +12,7 @@ export default function About() {
       </Head>
 
       <main className={styles.main}>
-        <h1>about</h1>
-        <a href='/'>Homepage</a>
+        <h1>About</h1>
       </main>
     </>
   )
