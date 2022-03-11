@@ -2,9 +2,25 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useGlobalContext } from '../components/context'
 import styles from '../styles/Home.module.css'
+import { createClient } from 'contentful'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { renderOptions } from '../components/renderOptions'
 
-export default function Home() {
-  const data = useGlobalContext()
+const client = createClient({
+  space: process.env.NEXT_PUBLIC_SPACE_SECRET,
+  accessToken: process.env.NEXT_PUBLIC_CMS_SECRET,
+})
+
+export const getStaticProps = async () => {
+  const res = await client.getEntries({ content_type: 'portfolioProjects' })
+  const data = await res
+  return {
+    props: { projects: data },
+  }
+}
+
+export default function Home({ projects }) {
+  console.log(projects)
   return (
     <>
       <Head>
@@ -15,7 +31,26 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1>Home</h1>
-        <section className={styles.projects}></section>
+        <section className={styles.projects}>
+          {/* {projects.map((article) => {
+            console.log(article)
+            return (
+              <article className='article' key={article.sys.id}>
+                <Link to={`/blog/${article.fields.slug}-${article.sys.id}`}>
+                  <img
+                    src={article.fields.thumbnail.fields.file.url}
+                    alt={article.fields.thumbnail.fields.description}
+                  />
+                </Link>
+                <h4 className='articleName'>
+                  <Link to={`/blog/${article.fields.slug}-${article.sys.id}`}>
+                    {article.fields.title}
+                  </Link>
+                </h4>
+              </article>
+            )
+          })} */}
+        </section>
       </main>
     </>
   )
